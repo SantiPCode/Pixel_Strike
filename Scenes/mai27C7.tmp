@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnepnmqm6aatm"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_im0mu"]
+[ext_resource type="Texture2D" uid="uid://3waot66ojl12" path="res://Assetss/Spritesheet/spritesheet_characters.png" id="2_kbyaj"]
+[ext_resource type="Script" path="res://bullet.gd" id="3_h6hlj"]
+[ext_resource type="Texture2D" uid="uid://cvybw5btc2ubp" path="res://Assetss/Spritesheet/bullet.png" id="4_eb1n1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk6yx"]
+size = Vector2(38, 42)
+
+[node name="Main" type="Node2D"]
+position = Vector2(34, 25)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_im0mu")
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture_filter = 1
+texture = ExtResource("2_kbyaj")
+region_enabled = true
+region_rect = Rect2(1.10863, -0.024559, 55.9901, 43.328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-8, 2)
+shape = SubResource("RectangleShape2D_bk6yx")
+
+[node name="bullet" type="Area2D" parent="."]
+script = ExtResource("3_h6hlj")
+
+[node name="Sprite2D" type="Sprite2D" parent="bullet"]
+position = Vector2(41, 9)
+scale = Vector2(0.05, 0.054)
+texture = ExtResource("4_eb1n1")

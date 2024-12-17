@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdhpejr0pv44g"]
+
+[ext_resource type="Texture2D" uid="uid://3waot66ojl12" path="res://Assetss/Spritesheet/spritesheet_characters.png" id="1_5lucs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl76m"]
+size = Vector2(30, 41.5)
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(15, 0)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_5lucs")
+region_enabled = true
+region_rect = Rect2(0, 0, 57.2925, 44.2592)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 0.25)
+shape = SubResource("RectangleShape2D_jl76m")
