@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdhpejr0pv44g"]
+[gd_scene load_steps=5 format=3 uid="uid://cdhpejr0pv44g"]
 
 [ext_resource type="Texture2D" uid="uid://3waot66ojl12" path="res://Assetss/Spritesheet/spritesheet_characters.png" id="1_5lucs"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_rvkhd"]
+[ext_resource type="PackedScene" uid="uid://d4l5w3xjef0hw" path="res://Scenes/pistol.tscn" id="2_rvrwo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jl76m"]
 size = Vector2(31, 41.5)
 
 [node name="player" type="CharacterBody2D"]
+script = ExtResource("1_rvkhd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(15, 0)
@@ -20,3 +23,6 @@ region_rect = Rect2(0, 0, 42.8357, 44.2592)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 0.25)
 shape = SubResource("RectangleShape2D_jl76m")
+
+[node name="Pistol" parent="." instance=ExtResource("2_rvrwo")]
+position = Vector2(14, 16)
