@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcphyyjkksdym"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_aq84j"]
+[ext_resource type="Texture2D" uid="uid://3waot66ojl12" path="res://Assetss/Spritesheet/spritesheet_characters.png" id="2_bhbtp"]
+[ext_resource type="PackedScene" uid="uid://v8ij473dvcb0" path="res://Scenes/health_component.tscn" id="3_ecl5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl76m"]
+size = Vector2(31, 43)
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_aq84j")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_ecl5w")]
+position = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_bhbtp")
+region_enabled = true
+region_rect = Rect2(351.992, 175.41, 37.9197, 44.7663)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_jl76m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(15, 0)
+zoom = Vector2(1.5, 1.5)
