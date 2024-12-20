@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://tq1jpcqn7cnn"]
+
+[ext_resource type="Script" path="res://scripts/bullet_hitbox.gd" id="1_nlr30"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usga1"]
+size = Vector2(8, 4)
+
+[node name="BulletHitbox" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_nlr30")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_usga1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
